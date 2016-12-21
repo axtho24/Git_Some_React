@@ -1,0 +1,74 @@
+body {
+  background: #0d2636;
+  color: white;
+}
+
+.App {
+  font-family: 'Baloo Thambi', cursive;
+  text-align: center;
+}
+
+header {
+  height: 10em;
+  background: url("github.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.title {
+  font-size: 3em;
+  color: white;
+  padding-top: 1em;
+  margin-top: 0;
+}
+
+.find {
+  margin-top: -3em;
+  margin-left: 60em;
+}
+
+.avatars {
+  border-radius: 5em;
+  width: 150px;
+  height: 150px;
+  opacity: .8;
+}
+
+section {
+  display: flex;
+  align-items: center;
+  padding: 1.5em;
+  margin-top: 3em;
+}
+
+button {
+  font-family: 'Baloo Thambi', cursive;
+  background: #3686ba;
+  margin-left: 1em;
+  border-radius: 1em;
+}
+
+input {
+  font-family: 'Baloo Thambi', cursive;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.contains {
+  background: #46aef1;
+  width: 25em;
+  height: 13em;
+  text-align: center;
+  margin: auto;
+  border-radius: 2em;
+}
+
+.users {
+  display: flex;
+  flex-direction: column;
+  margin-left: 3em;
+}
