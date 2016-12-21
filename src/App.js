@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import './App.css';
 
+let students = [
+  {name:"Adam Jahr", username: "atomjar"},
+  {name:"Huy Luong", username: "huyluong88"},
+  {name:"Eric Ransom", username: "eransom"},
+  {name:"Moa Bullon", username: "moabullon"}
+]
+
 class App extends Component {
 
 constructor (){
@@ -11,19 +18,14 @@ constructor (){
 }
 
 componentDidMount () {
-  axios.get(`https://api.github.com/users/axtho24`).
-  then(response => this.setState ({
-    avatar: response.data.avatar_url,
-    username: response.data.login,
-    link: response.data.html_url,
-    blog: response.data.blog,
-    location: response.data.location,
-    hireable: response.data.hireable
-}))
+  this.user('axtho24')
 }
 
 showUser () {
-  let username = this.otherUser.value
+  this.user(this.otherUser.value)
+}
+
+user (username) {
   axios.get(`https://api.github.com/users/${username}`).
   then(response => this.setState ({
     avatar: response.data.avatar_url,
@@ -34,55 +36,6 @@ showUser () {
     hireable: response.data.hireable
 }))
 }
-
-changeUser1 () {
-  axios.get(`https://api.github.com/users/atomjar`).
-  then(response => this.setState ({
-    avatar: response.data.avatar_url,
-    username: response.data.login,
-    link: response.data.html_url,
-    blog: response.data.blog,
-    location: response.data.location,
-    hireable: response.data.hireable
-}))
-}
-
-changeUser2 () {
-  axios.get(`https://api.github.com/users/huyluong88`).
-  then(response => this.setState ({
-    avatar: response.data.avatar_url,
-    username: response.data.login,
-    link: response.data.html_url,
-    blog: response.data.blog,
-    location: response.data.location,
-    hireable: response.data.hireable
-}))
-}
-
-changeUser3 () {
-  axios.get(`https://api.github.com/users/eransom`).
-  then(response => this.setState ({
-    avatar: response.data.avatar_url,
-    username: response.data.login,
-    link: response.data.html_url,
-    blog: response.data.blog,
-    location: response.data.location,
-    hireable: response.data.hireable
-}))
-}
-
-changeUser4 () {
-  axios.get(`https://api.github.com/users/moabullon`).
-  then(response => this.setState ({
-    avatar: response.data.avatar_url,
-    username: response.data.login,
-    link: response.data.html_url,
-    blog: response.data.blog,
-    location: response.data.location,
-    hireable: response.data.hireable
-}))
-}
-
 
   render() {
     return (
@@ -96,10 +49,11 @@ changeUser4 () {
       </header>
       <p> The Iron Yard Front-End students</p>
       <p>
-      <button onClick={this.changeUser1.bind(this)}>Adam Jahr</button>
-      <button onClick={this.changeUser2.bind(this)}>Huy Luong</button>
-      <button onClick={this.changeUser3.bind(this)}>Eric Ransom</button>
-      <button onClick={this.changeUser4.bind(this)}>Moa Bullon</button>
+
+      {students.map(student =>{
+        return <button onClick={this.user.bind(this, student.username)}>{student.name}</button>
+      })}
+      
       </p>
       <div className="contains">
       <section>
